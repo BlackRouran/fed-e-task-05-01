@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+/**
+ * 依次执行同步代码，遇到宏任务放进宏任务队列，遇到微任务返给微任务队列
+ * 同步代码执行完成后，先检查微任务队列，依次执行，没有微任务就执行宏任务
+ * 一个宏任务执行完成后，会立即检查微任务队列里时候有可执行的任务
+*/
+setTimeout(()=> {  
+  console.log('s1')
+  Promise.resolve().then(()=> {
+    console.log('p1')
+  })
+})
+console.log('start') 
+setTimeout(()=> { 
+  console.log('s2')
+  Promise.resolve().then(()=> {
+    console.log('p2')
+  })
+})
+
+Promise.resolve().then(()=> { 
+  console.log('p3')
+})
+
+console.log('end') 
+
+// start end p3 s1 p1 s2 p2 
+  </script>
+</body>
+</html>
