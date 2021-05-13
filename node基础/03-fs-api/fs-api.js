@@ -93,20 +93,20 @@ const path = require('path')
 // })
 
 // 查看文件权限
-fs.access('data.txt', (err) => {
+fs.access('b.txt', (err) => {
   if (err) {
-    console.logs(err);
+    console.log(err);
   } else {
     console.log('有操作权限')
   }
 })
 
  //获取目录及文件信息
-fs.stat('data.txt', (err, statObj) => {
-  if (!err) {
-    console.log(statObj)
-  }
-})
+// fs.stat('data3.txt', (err, statObj) => {
+//   if (!err) {
+//     console.log(statObj)
+//   }
+// })
 
 // 创建目录
 
@@ -115,40 +115,40 @@ fs.stat('data.txt', (err, statObj) => {
  * 如果传入 recursive: true，将递归创建目录
 */
 
-fs.mkdir('a/b/c',{recursive: true}, (err) => {
-  if (!err) {
-    console.log('创建成功')
-  } else {
-    console.log(err)
-  }
-})
+// fs.mkdir('a/b/c',{recursive: true}, (err) => {
+//   if (!err) {
+//     console.log('创建成功')
+//   } else {
+//     console.log(err)
+//   }
+// })
 
 //删除目录
 // 如果传多级目录，默认将删除最后一层
 // 如果传父目录，默认只能删除空目录， 传recursive 将递归删除父级目录下所有内容
-fs.rmdir('a', {recursive: true}, (err) =>{
-  if (!err) {
-    console.log('删除成功')
-  } else {
-    console.log(err)
-  }
-})
+// fs.rmdir('a', {recursive: true}, (err) =>{
+//   if (!err) {
+//     console.log('删除成功')
+//   } else {
+//     console.log(err)
+//   }
+// })
 
 // readdir 读取目录信息read
-fs.readdir('a', (err, files) => {
-  if (!err) {
-    console.log(files);
-  } else {
-    console.log(err);
-  }
-})
+// fs.readdir('a', (err, files) => {
+//   if (!err) {
+//     console.log(files);
+//   } else {
+//     console.log(err);
+//   }
+// })
 
 //删除文件
-fs.unlink('a/a.txt', (err) => {
-  if (!err) {
-    console.log('删除成功');
-  }
-}) 
+// fs.unlink('a/a.txt', (err) => {
+//   if (!err) {
+//     console.log('删除成功');
+//   }
+// }) 
 
 
 
